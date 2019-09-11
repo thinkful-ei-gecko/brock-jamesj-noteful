@@ -1,34 +1,35 @@
 import React from 'react'
-import Folder from './FileFolder/Folder'
-import Note from './NoteFolder/Note';
+import Note from './NoteFolder/Note'
 
 export default function NoteView(props) {
+  const filteredFolder = notes => {
+    let selectedNote = notes.find(note => note.id === props.match.params.id)
+    console.log(selectedNote)
+    return selectedNote ? selectedNote.folderId : ''
+  }
 
-    const filteredFolder = (notes) => {
-        let selectedNote = notes.find(note => note.id === props.match.params.id)
-        console.log(selectedNote)
-        return selectedNote.folderId
-    }
+  const filteredFolderItem = (id, folders) => {
+    let folderObj = folders.find(folder => folder.id === id)
+    return folderObj ? folderObj.name : ''
+  }
 
-    const filteredFolderItem = (id, folders) => {
-        
-        return folders.find(folder => folder.id === id)
-    }
+  const FilteredNote = (notes, id) => {
+    return notes.find(note => note.id === id)
+  }
 
-    const FilteredNote = (notes, id) => {
-
-        return notes.find(note => note.id === id)
-    }
-
-    return (
-        <>  
-            <section className="SideBar">
-                <button>Go Back</button>
-                <Folder {...filteredFolderItem(filteredFolder(props.notes), props.folders)}/>
-            </section>
-            <section className="Main">
-                <Note {...FilteredNote(props.notes, props.match.params.id)}/>
-            </section>
-        </>
-    )
+  return (
+    <>
+      <section className="SideBar">
+        <button>Go Back</button>
+        <h2 className="sidebar-folder-selected">
+          {filteredFolderItem(filteredFolder(props.notes), props.folders)}
+        </h2>
+      </section>
+      <section className="Main">
+        <ul>
+          <Note {...FilteredNote(props.notes, props.match.params.id)} />
+        </ul>
+      </section>
+    </>
+  )
 }

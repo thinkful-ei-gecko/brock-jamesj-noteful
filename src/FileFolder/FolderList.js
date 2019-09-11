@@ -2,18 +2,17 @@ import React from 'react'
 import Folder from './Folder'
 
 export default function FolderList(props) {
-//console.log(folder)
+console.log(props)
     const folders = props.folders.map(folder => {
         return (
             <Folder 
             key={folder.id}
             name={folder.name}
             id={folder.id}
-            selected={props.selected}
+            selected={props.selected ? props.selected : '' }
             />
         )
     });
-    console.log(folders)
 
     return (
         <>

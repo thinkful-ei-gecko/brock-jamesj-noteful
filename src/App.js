@@ -10,24 +10,40 @@ function App() {
   const state = Store
 
   return (
-    <div className="App">
+    <>
       <header>
-        <Link to="/">Noteful</Link>
+        <Link to="/">
+          <h1>Noteful</h1>
+        </Link>
       </header>
-      <Switch>
-        <Route exact path="/" render={() => <Main {...state} />} />
-        <Route
-          path="/folder/:id"
-          render={({ match, location, history }) => (
-            <FolderView {...state} match={match} location={location} history={history} />
-          )}/>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" render={() => <Main {...state} />} />
           <Route
-          path="/note/:id"
-          render={({ match, location, history }) => (
-            <NoteView {...state} match={match} location={location} history={history} />
-          )}/>
-      </Switch>
-    </div>
+            path="/folder/:id"
+            render={({ match, location, history }) => (
+              <FolderView
+                {...state}
+                match={match}
+                location={location}
+                history={history}
+              />
+            )}
+          />
+          <Route
+            path="/note/:id"
+            render={({ match, location, history }) => (
+              <NoteView
+                {...state}
+                match={match}
+                location={location}
+                history={history}
+              />
+            )}
+          />
+        </Switch>
+      </div>
+    </>
   )
 }
 
