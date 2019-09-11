@@ -13,9 +13,12 @@ export default function NoteList(props) {
     });
 
     return (
-        <ul>
-            {notes}
-        </ul>
+        <>
+            <ul>
+                {notes}
+            </ul>
+            <button>Add Note</button>
+        </>
     )
 }
 

@@ -15,9 +15,12 @@ export default function FolderList(props) {
     console.log(folders)
 
     return (
-        <ul>
-            {folders}
-        </ul>
+        <>
+            <ul>
+                {folders}
+            </ul>
+            <button>Add Folder</button>
+        </>
     )
 }
 

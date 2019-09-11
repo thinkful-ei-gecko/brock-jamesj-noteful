@@ -7,9 +7,9 @@ export default function Note(props) {
 
     return (
        <li id={props.id}>
-           <p>{props.name}</p>
-           <p>Date modified: {formatDate.toLocaleDateString()}</p>
-           <p>{props.name}</p>
+           <h2>{props.name}</h2>
+           <p>Date modified on {formatDate.toLocaleDateString()}</p>
+           <p>{props.content}</p>
            <button>Delete Note</button>
        </li>
     )
