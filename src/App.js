@@ -1,8 +1,8 @@
 import React from 'react'
 import './App.css'
 import Store from './dummy-store'
-import FolderList from './FileFolder/FolderList'
-import NoteList from './NoteFolder/NoteList'
+import Main from './Main'
+import { Route, Switch } from 'react-router-dom'
 
 function App() {
   const state = Store
@@ -10,10 +10,9 @@ function App() {
   return (
     <div className="App">
       <header>Noteful</header>
-      <div>
-        <FolderList {...state} />
-        <NoteList {...state} />
-      </div>
+      <Switch>
+        <Route exact path="/" render={() => <Main {...state} />} />
+      </Switch>
     </div>
   )
 }
