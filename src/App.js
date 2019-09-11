@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Store from './dummy-store'
 import FolderList from './FileFolder/FolderList'
+import NoteList from './NoteFolder/NoteList';
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
         Noteful
       </header>
       <div>
-        <FolderList {...state}/>
+        <FolderList {...state} />
+        <NoteList {...state} />
       </div>
     </div>
   );
