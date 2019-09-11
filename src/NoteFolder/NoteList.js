@@ -7,8 +7,7 @@ export default function NoteList(props) {
         return (
             <Note 
             key={note.id}
-            name={note.name}
-            id={note.id}
+            {...note}
             />
         )
     });
