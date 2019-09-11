@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Store from './dummy-store'
 import Main from './Main'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 import FolderView from './FolderView'
 import NoteView from './NoteView'
 
@@ -11,7 +11,9 @@ function App() {
 
   return (
     <div className="App">
-      <header>Noteful</header>
+      <header>
+        <Link to="/">Noteful</Link>
+      </header>
       <Switch>
         <Route exact path="/" render={() => <Main {...state} />} />
         <Route

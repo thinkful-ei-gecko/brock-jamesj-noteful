@@ -9,6 +9,7 @@ export default function FolderList(props) {
             key={folder.id}
             name={folder.name}
             id={folder.id}
+            selected={props.selected}
             />
         )
     });

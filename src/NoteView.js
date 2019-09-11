@@ -21,10 +21,14 @@ export default function NoteView(props) {
     }
 
     return (
-        <>
-            <button>Go Back</button>
-            <Folder {...filteredFolderItem(filteredFolder(props.notes), props.folders)}/>
-            <Note {...FilteredNote(props.notes, props.match.params.id)}/>
+        <>  
+            <section className="SideBar">
+                <button>Go Back</button>
+                <Folder {...filteredFolderItem(filteredFolder(props.notes), props.folders)}/>
+            </section>
+            <section className="Main">
+                <Note {...FilteredNote(props.notes, props.match.params.id)}/>
+            </section>
         </>
     )
 }

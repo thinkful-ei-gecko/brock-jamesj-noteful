@@ -1,6 +1,6 @@
 import React from 'react'
 import NoteList from './NoteFolder/NoteList'
-import Folder from './FileFolder/Folder'
+import FolderList from './FileFolder/FolderList'
 
 export default function FolderView(props) {
   // TODO - Handle broken state when folder ID is invalid
@@ -15,8 +15,13 @@ export default function FolderView(props) {
 
   return (
     <>
-      <Folder {...filteredFolder(props.folders)} />
-      <NoteList notes={filteredNotes(props.notes)} />
+      <section className="SideBar">
+        <FolderList {...props}
+        selected={filteredFolder(props.folders)} />
+      </section>
+      <section className="Main">
+        <NoteList notes={filteredNotes(props.notes)} />
+      </section>
     </>
   )
 }
